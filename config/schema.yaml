@@ -1,0 +1,39 @@
+columns:
+  Area: float
+  BHK: int
+  Bathroom: float
+  Furnishing: category
+  Locality: category
+  Parking: float
+  Price: int
+  Status: category
+  Transaction: category
+  Type: category
+  Per_Sqft: float
+
+numerical_columns:
+  - Area
+  - BHK
+  - Bathroom
+  - Parking
+  - Price
+  - Per_Sqft
+
+categorical_columns:
+  - Furnishing
+  - Locality
+  - Status
+  - Transaction
+  - Type
+
+
+# drop_columns: _id
+
+# # for data transformation
+# num_features:
+#   - Age
+#   - Vintage
+
+
+# mm_columns:
+#   - Annual_Premium
