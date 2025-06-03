@@ -42,10 +42,10 @@ class TrainPipeline:
         """
         try:
             logging.info("Entered the start_data_ingestion method of TrainPipeline class")
-            logging.info("Getting the data from mongodb")
+            logging.info("Getting the data from kaggle")
             data_ingestion = DataIngestion(data_ingestion_config=self.data_ingestion_config)
             data_ingestion_artifact = data_ingestion.initiate_data_ingestion()
-            logging.info("Got the train_set and test_set from mongodb")
+            logging.info("Got the train_set and test_set from kaggle")
             logging.info("Exited the start_data_ingestion method of TrainPipeline class")
             return data_ingestion_artifact
         except Exception as e:
