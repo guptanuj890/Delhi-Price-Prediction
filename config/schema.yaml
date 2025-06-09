@@ -27,12 +27,13 @@ categorical_columns:
   - Type
 
 
-# drop_columns: _id
-
-# # for data transformation
-# num_features:
-#   - Age
-#   - Vintage
+# for data transformation
+num_features:
+  - Area
+  - BHK
+  - Bathroom
+  - Parking
+  - Per_Sqft
 
 
 # mm_columns:
