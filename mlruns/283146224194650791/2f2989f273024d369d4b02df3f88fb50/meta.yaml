@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/283146224194650791/2f2989f273024d369d4b02df3f88fb50/artifacts
+end_time: 1749538289910
+entry_point_name: ''
+experiment_id: '283146224194650791'
+lifecycle_stage: active
+run_id: 2f2989f273024d369d4b02df3f88fb50
+run_name: efficient-midge-278
+run_uuid: 2f2989f273024d369d4b02df3f88fb50
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749538276768
+status: 3
+tags: []
+user_id: Anuj
