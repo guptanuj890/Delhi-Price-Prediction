@@ -70,11 +70,12 @@ class ModelTrainerConfig:
     _max_depth: int = MIN_SAMPLES_SPLIT_MAX_DEPTH
     _random_state: int = MIN_SAMPLES_SPLIT_RANDOM_STATE
     
-# @dataclass
-# class ModelEvaluationConfig:
-#     changed_threshold_score: float = MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE
+@dataclass
+class ModelEvaluationConfig:
+    changed_threshold_score: float = MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE
+    #preprocessed_object_file_path=os.join(data_transformation_artifact.transformed_object_file_path)
     # bucket_name: str = MODEL_BUCKET_NAME
-    #s3_model_key_path: str = MODEL_FILE_NAME
+    # s3_model_key_path: str = MODEL_FILE_NAME
     
 # @dataclass
 # class ModelPusherConfig:

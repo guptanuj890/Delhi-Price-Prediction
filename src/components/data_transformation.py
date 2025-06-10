@@ -4,6 +4,7 @@ import pandas as pd
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
 
 from src.constants import TARGET_COLUMN, SCHEMA_FILE_PATH, CURRENT_YEAR
 from src.entity.config_entity import DataTransformationConfig
@@ -104,18 +105,44 @@ class DataTransformation:
         except Exception as e:
             raise MyException(e, sys)
 
+    # def get_data_transformer_object(self) -> ColumnTransformer:
+    #     try:
+    #         num_cols = self._schema_config.get('num_features', [])
+    #         logging.info(f"Scaling numerical columns: {num_cols}")
+    #         pipeline = Pipeline(steps=[("scaler", StandardScaler())])
+    #         transformer = ColumnTransformer(transformers=[
+    #             ("num", pipeline, num_cols)
+    #         ], remainder="passthrough")
+    #         return transformer
+    #     except Exception as e:
+    #         raise MyException(e, sys)
+
     def get_data_transformer_object(self) -> ColumnTransformer:
         try:
             num_cols = self._schema_config.get('num_features', [])
-            logging.info(f"Scaling numerical columns: {num_cols}")
-            pipeline = Pipeline(steps=[("scaler", StandardScaler())])
-            transformer = ColumnTransformer(transformers=[
-                ("num", pipeline, num_cols)
-            ], remainder="passthrough")
-            return transformer
+            cat_cols = self._schema_config.get('categorical_columns', [])
+
+            logging.info(f"Numerical columns: {num_cols}")
+            logging.info(f"Categorical columns: {cat_cols}")
+
+            num_pipeline = Pipeline(steps=[
+                ("scaler", StandardScaler())
+            ])
+
+            cat_pipeline = Pipeline(steps=[
+                ("onehot", OneHotEncoder(handle_unknown="ignore"))
+            ])
+
+            preprocessor = ColumnTransformer(transformers=[
+                ("num", num_pipeline, num_cols),
+                ("cat", cat_pipeline, cat_cols)
+            ])
+
+            return preprocessor
         except Exception as e:
             raise MyException(e, sys)
 
+    
     def initiate_data_transformation(self) -> DataTransformationArtifact:
         try:
             logging.info("Starting data transformation")
@@ -139,7 +166,7 @@ class DataTransformation:
                 self._impute_missing_values(df)
                 self._feature_engineering(df)
                 self._drop_columns(df)
-                self._encode_categorical_columns(df)
+                #self._encode_categorical_columns(df)
 
             # Create transformer
             preprocessor = self.get_data_transformer_object()

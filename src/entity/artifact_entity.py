@@ -27,15 +27,18 @@ class RegressionMetricArtifact:
 
 @dataclass
 class ModelTrainerArtifact:
-    trained_model_file_path:str 
-    metric_artifact:RegressionMetricArtifact
+    trained_model_file_path: str
+    metric_artifact: RegressionMetricArtifact
+    preprocessed_object_file_path: str
+
     
-# @dataclass
-# class ModelEvaluationArtifact:
-#     is_model_accepted:bool
-#     changed_accuracy:float
-#     #s3_model_path:str 
-#     trained_model_path:str
+@dataclass
+class ModelEvaluationArtifact:
+    trained_model_r2_score: float
+    best_model_r2_score: float
+    is_model_accepted: bool
+    difference: float
+
     
 # @dataclass
 # class ModelPusherArtifact:

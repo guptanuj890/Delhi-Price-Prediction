@@ -15,17 +15,14 @@ class MyModel:
         self.trained_model_object = trained_model_object
 
     def predict(self, dataframe: pd.DataFrame) -> DataFrame:
-        """
-        Applies preprocessing and uses the trained model to make predictions.
-        Expects raw input DataFrame with all required features.
-        """
         try:
             logging.info("Starting prediction process...")
 
-            # Transform input features
+            if not isinstance(dataframe, pd.DataFrame):
+                raise TypeError("Input to predict must be a pandas DataFrame with column names.")
+
             transformed_features = self.preprocessing_object.transform(dataframe)
 
-            # Make predictions
             logging.info("Generating predictions using trained model...")
             predictions = self.trained_model_object.predict(transformed_features)
 

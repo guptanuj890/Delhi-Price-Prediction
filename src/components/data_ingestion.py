@@ -62,7 +62,11 @@ class DataIngestion:
         try:
             logging.info("Splitting data into train and test sets")
 
-            train_set, test_set = train_test_split(dataframe, test_size=self.data_ingestion_config.train_test_split_ratio)
+            train_set, test_set = train_test_split(
+                dataframe,
+                test_size=self.data_ingestion_config.train_test_split_ratio,
+                random_state=42 
+            )
 
             os.makedirs(os.path.dirname(self.data_ingestion_config.training_file_path), exist_ok=True)
 
@@ -72,6 +76,7 @@ class DataIngestion:
             logging.info("Train and test data saved successfully")
         except Exception as e:
             raise MyException(e, sys)
+
 
     def initiate_data_ingestion(self) -> DataIngestionArtifact:
         try:

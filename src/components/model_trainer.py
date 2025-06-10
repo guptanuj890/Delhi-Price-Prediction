@@ -11,6 +11,7 @@ from src.utils.main_utils import load_numpy_array_data, load_object, save_object
 from src.entity.config_entity import ModelTrainerConfig
 from src.entity.artifact_entity import DataTransformationArtifact, ModelTrainerArtifact, RegressionMetricArtifact
 from src.entity.estimator import MyModel
+from src.entity.artifact_entity import ModelTrainerArtifact
 
 class ModelTrainer:
     def __init__(self, data_transformation_artifact: DataTransformationArtifact,
@@ -79,6 +80,7 @@ class ModelTrainer:
             model_trainer_artifact = ModelTrainerArtifact(
                 trained_model_file_path=self.model_trainer_config.trained_model_file_path,
                 metric_artifact=metric_artifact,
+                preprocessed_object_file_path=self.data_transformation_artifact.transformed_object_file_path
             )
             return model_trainer_artifact
 
