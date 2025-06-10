@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/ecded5f11b53401baa6610b12d978b0c/artifacts
+end_time: 1749536043431
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ecded5f11b53401baa6610b12d978b0c
+run_name: redolent-cub-731
+run_uuid: ecded5f11b53401baa6610b12d978b0c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749536043172
+status: 3
+tags: []
+user_id: Anuj
