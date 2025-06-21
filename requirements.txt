@@ -1,0 +1,33 @@
+# Core Web App
+fastapi==0.115.12
+uvicorn[standard]==0.34.3
+
+# Data interchange / form support
+python-multipart==0.0.20
+pydantic==2.11.5
+pydantic_core==2.33.2
+typing-extensions==4.14.0
+
+# Logging, Monitoring & Telemetry (Optional)
+opentelemetry-api==1.34.0
+opentelemetry-sdk==1.34.0
+opentelemetry-semantic-conventions==0.55b0
+
+# MLflow tracking support (lightweight)
+mlflow-skinny==2.22.1
+
+# Data processing (optional; keep if working with JSON, CSV, etc.)
+pandas==2.2.3
+pyarrow==19.0.1
+
+# Auth / API usage
+google-auth==2.40.3
+requests==2.32.3
+
+# Utilities
+click==8.2.1
+tqdm==4.67.1
+python-slugify==8.0.4
+
+# Deployment support
+waitress==3.0.2  # If you're not using uvicorn in production
