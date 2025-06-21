@@ -31,3 +31,5 @@ python-slugify==8.0.4
 
 # Deployment support
 waitress==3.0.2  # If you're not using uvicorn in production
+
+joblib==1.5.1
