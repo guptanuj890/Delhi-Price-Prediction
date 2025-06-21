@@ -28,7 +28,7 @@ class DataTransformation:
 
     def _impute_missing_values(self, df: pd.DataFrame) -> pd.DataFrame:
         try:
-            df['Per_Sqft'].fillna((df['Per_Sqft'].mean()), inplace=True)
+            #df['Per_Sqft'].fillna((df['Per_Sqft'].mean()), inplace=True)
             df['Bathroom'].fillna(df['Bathroom'].mode()[0], inplace=True)
             df['Furnishing'].fillna(df['Furnishing'].mode()[0], inplace=True)
             df['Parking'].fillna(df['Parking'].mode()[0], inplace=True)
@@ -119,7 +119,7 @@ class DataTransformation:
 
     def get_data_transformer_object(self) -> ColumnTransformer:
         try:
-            num_cols = self._schema_config.get('num_features', [])
+            num_cols = self._schema_config.get('numerical_columns', [])
             cat_cols = self._schema_config.get('categorical_columns', [])
 
             logging.info(f"Numerical columns: {num_cols}")
@@ -161,13 +161,21 @@ class DataTransformation:
             input_test_df = test_df.drop(columns=[TARGET_COLUMN], axis=1)
             target_test_df = test_df[TARGET_COLUMN]
 
-            # Preprocessing pipeline
-            for df in [input_train_df, input_test_df]:
-                self._impute_missing_values(df)
-                self._feature_engineering(df)
-                self._drop_columns(df)
-                #self._encode_categorical_columns(df)
+            for i, df in enumerate([input_train_df, input_test_df]):
+                df = self._impute_missing_values(df)
+                df = self._feature_engineering(df)
+                df = self._drop_columns(df)
+                if i == 0:
+                    input_train_df = df
+                else:
+                    input_test_df = df
 
+                #self._encode_categorical_columns(df)
+            
+            logging.info(f"Columns in input_train_df: {input_train_df.columns.tolist()}")
+            logging.info(f"Columns in input_test_df: {input_test_df.columns.tolist()}")
+
+            
             # Create transformer
             preprocessor = self.get_data_transformer_object()
 

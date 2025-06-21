@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/283146224194650791/cf1a710b12074a4fa19e4acc67187a31/artifacts
+end_time: 1750055538793
+entry_point_name: ''
+experiment_id: '283146224194650791'
+lifecycle_stage: active
+run_id: cf1a710b12074a4fa19e4acc67187a31
+run_name: peaceful-mouse-774
+run_uuid: cf1a710b12074a4fa19e4acc67187a31
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750055513427
+status: 3
+tags: []
+user_id: Anuj

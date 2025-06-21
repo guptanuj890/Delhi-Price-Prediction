@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/283146224194650791/a54b33d1a82748da84cbdc945f683406/artifacts
+end_time: 1749967142548
+entry_point_name: ''
+experiment_id: '283146224194650791'
+lifecycle_stage: active
+run_id: a54b33d1a82748da84cbdc945f683406
+run_name: gaudy-squid-300
+run_uuid: a54b33d1a82748da84cbdc945f683406
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749967125801
+status: 3
+tags: []
+user_id: Anuj

@@ -16,8 +16,8 @@ numerical_columns:
   - BHK
   - Bathroom
   - Parking
-  - Price
-  - Per_Sqft
+#  - Price
+#  - Per_Sqft
 
 categorical_columns:
   - Furnishing
@@ -26,15 +26,8 @@ categorical_columns:
   - Transaction
   - Type
 
-
-# for data transformation
-num_features:
-  - Area
-  - BHK
-  - Bathroom
-  - Parking
+drop_columns:
   - Per_Sqft
-
 
 # mm_columns:
 #   - Annual_Premium

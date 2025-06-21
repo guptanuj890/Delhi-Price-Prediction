@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/283146224194650791/386b5c78f3df4e9e9c4d213d5f5a6a9e/artifacts
+end_time: 1749749186768
+entry_point_name: ''
+experiment_id: '283146224194650791'
+lifecycle_stage: active
+run_id: 386b5c78f3df4e9e9c4d213d5f5a6a9e
+run_name: bright-koi-781
+run_uuid: 386b5c78f3df4e9e9c4d213d5f5a6a9e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749749170834
+status: 3
+tags: []
+user_id: Anuj

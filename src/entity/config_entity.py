@@ -81,3 +81,7 @@ class ModelEvaluationConfig:
 # class ModelPusherConfig:
 #     bucket_name: str = MODEL_BUCKET_NAME
 #     s3_model_key_path: str = MODEL_FILE_NAME
+
+@dataclass
+class HousePredictorConfig:
+    model_path: str = os.path.join("artifacts", "best_model", "best_model.pkl")

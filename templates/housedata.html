@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delhi House Price Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Delhi House Price Prediction</h1>
+
+        <form method="post" action="/">
+            <label for="Area">Area (sq. ft):</label>
+            <input type="number" step="0.01" id="Area" name="Area" required>
+
+            <label for="BHK">BHK:</label>
+            <input type="number" id="BHK" name="BHK" required>
+
+            <label for="Bathroom">Bathroom:</label>
+            <input type="number" id="Bathroom" name="Bathroom" required>
+
+            <label for="Furnishing">Furnishing:</label>
+            <select id="Furnishing" name="Furnishing" required>
+                <option value="Semi-Furnished">Semi-Furnished</option>
+                <option value="Furnished">Furnished</option>
+                <option value="Unfurnished">Unfurnished</option>
+            </select>
+
+            <label for="Locality">Locality:</label>
+            <input type="text" id="Locality" name="Locality" required>
+
+            <label for="Parking">Parking:</label>
+            <input type="number" step="1" id="Parking" name="Parking" required>
+
+            <label for="Status">Status:</label>
+            <select id="Status" name="Status" required>
+                <option value="Ready_to_move">Ready to Move</option>
+                <option value="Almost_Ready">Almost Ready</option>
+            </select>
+
+            <label for="Transaction">Transaction:</label>
+            <select id="Transaction" name="Transaction" required>
+                <option value="New_Property">New Property</option>
+                <option value="Resale">Resale</option>
+            </select>
+
+            <label for="Type">Type:</label>
+            <select id="Type" name="Type" required>
+                <option value="Builder_Floor">Builder Floor</option>
+                <option value="Apartment">Apartment</option>
+            </select>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        <form method="get" action="/train">
+            <button type="submit" class="train-button">Train Model</button>
+        </form>
+
+        {% if context %}
+            <div class="result">
+                <h2>Predicted Price: ₹{{ context }}</h2>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
