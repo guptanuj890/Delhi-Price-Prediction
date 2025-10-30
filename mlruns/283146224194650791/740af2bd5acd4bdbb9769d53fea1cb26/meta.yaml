@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/283146224194650791/740af2bd5acd4bdbb9769d53fea1cb26/artifacts
+end_time: 1751907557441
+entry_point_name: ''
+experiment_id: '283146224194650791'
+lifecycle_stage: active
+run_id: 740af2bd5acd4bdbb9769d53fea1cb26
+run_name: thundering-trout-474
+run_uuid: 740af2bd5acd4bdbb9769d53fea1cb26
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1751907539205
+status: 3
+tags: []
+user_id: Anuj

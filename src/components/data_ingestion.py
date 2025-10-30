@@ -9,6 +9,11 @@ from src.entity.config_entity import DataIngestionConfig
 from src.entity.artifact_entity import DataIngestionArtifact
 from src.exception import MyException
 from src.logger import logging
+from dotenv import load_dotenv
+
+# Load env variables from .env
+load_dotenv()
+
 
 class DataIngestion:
     def __init__(self, data_ingestion_config: DataIngestionConfig = DataIngestionConfig()):
@@ -25,8 +30,8 @@ class DataIngestion:
             logging.info("Downloading dataset from Kaggle")
 
             # Set Kaggle API credentials (optional if ~/.kaggle/kaggle.json exists)
-            os.environ['KAGGLE_USERNAME'] = self.data_ingestion_config.kaggle_username
-            os.environ['KAGGLE_KEY'] = self.data_ingestion_config.kaggle_key
+            kaggle_username = os.environ['KAGGLE_USERNAME']
+            kaggle_key = os.environ['KAGGLE_KEY']
 
             dataset_name = self.data_ingestion_config.kaggle_dataset_name
             download_path = self.data_ingestion_config.kaggle_download_dir
